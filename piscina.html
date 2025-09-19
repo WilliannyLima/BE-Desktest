@@ -19,6 +19,36 @@
       flex-direction: column;
     }
 
+    .header-button {
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .login-button-header {
+      background-color: #d9534f;
+      color: white;
+    }
+
+    .login-button-header:hover {
+      background-color: #c9302c;
+      transform: scale(1.05); /* Efeito de zoom */
+    }
+
+    .register-button-header {
+      background-color: white;
+      color: #5cb85c;
+      border: 2px solid #5cb85c;
+    }
+
+    .register-button-header:hover {
+      background-color: #e0e0e0;
+      color: #3e7d3e;
+      transform: scale(1.05); /* Efeito de zoom */
+    }
+
     /* Barra superior */
     .navbar {
       width: 100%;
@@ -100,9 +130,10 @@
       <a href="ginasio.html"><i class="fa-solid fa-futbol"></i> Ginásio</a>
       <a href="piscina.html"><i class="fa-solid fa-person-swimming"></i> Piscina</a>
     </div>
-    <div class="login">
-      <a href="login.html">LOGIN</a>
-    </div>
+    <div class="header-buttons">
+  <a href="login.html" class="header-button login-button-header">LOGIN</a>
+  <a href="registrar.html" class="header-button register-button-header">CADASTRAR</a>
+</div>
   </div>
 
   <!-- Conteúdo -->
