@@ -51,21 +51,16 @@
     }
 
     .nav a:hover {
-      background: #a8d5a2; /* verde claro */
+      background: #a8d5a2;
     }
 
-    .login a {
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .header-button {
+    .header-buttons a {
       padding: 8px 12px;
       border-radius: 5px;
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      margin-left: 10px;
     }
 
     .login-button-header {
@@ -75,7 +70,7 @@
 
     .login-button-header:hover {
       background-color: #c9302c;
-      transform: scale(1.05); /* Efeito de zoom */
+      transform: scale(1.05);
     }
 
     .register-button-header {
@@ -87,8 +82,9 @@
     .register-button-header:hover {
       background-color: #e0e0e0;
       color: #3e7d3e;
-      transform: scale(1.05); /* Efeito de zoom */
+      transform: scale(1.05);
     }
+
     /* Conteúdo */
     .content {
       flex-grow: 1;
@@ -153,11 +149,19 @@
       background: #47763e;
     }
 
-    .horarios {
+    /* Container da tabela com scroll horizontal */
+    .tabela-container {
       width: 100%;
-      border-collapse: collapse;
+      overflow-x: auto;
       margin-top: 10px;
       display: none; /* escondida inicialmente */
+      scroll-behavior: smooth;
+    }
+
+    .horarios {
+      border-collapse: collapse;
+      min-width: 500px; /* força scroll horizontal se necessário */
+      width: 100%;
       background: #f7f3e9;
     }
 
@@ -165,11 +169,13 @@
       border: 1px solid #47763e;
       padding: 5px;
       text-align: center;
+      white-space: nowrap;
     }
 
     .horarios th {
       background: #a8d5a2;
     }
+
   </style>
 </head>
 <body>
@@ -184,9 +190,9 @@
       <a href="piscina.html"><i class="fa-solid fa-person-swimming"></i> Piscina</a>
     </div>
     <div class="header-buttons">
-  <a href="login.html" class="header-button login-button-header">LOGIN</a>
-  <a href="registrar.html" class="header-button register-button-header">CADASTRAR</a>
-</div>
+      <a href="login.html" class="header-button login-button-header">LOGIN</a>
+      <a href="registrar.html" class="header-button register-button-header">CADASTRAR</a>
+    </div>
   </div>
 
   <!-- Conteúdo -->
@@ -199,36 +205,38 @@
         <h2>Sala 1</h2>
         <p class="disponivel">Disponível</p>
         <button class="ver-mais">Ver Mais</button>
-        <table class="horarios">
-          <thead>
-            <tr>
-              <th>Horário</th>
-              <th>Segunda</th>
-              <th>Terça</th>
-              <th>Quarta</th>
-              <th>Quinta</th>
-              <th>Sexta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>07:00 às 07:45</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-            </tr>
-            <tr>
-              <td>09:35 às 10:20</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tabela-container">
+          <table class="horarios">
+            <thead>
+              <tr>
+                <th>Horário</th>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>07:00 às 07:45</td>
+                <td>Livre</td>
+                <td>Ocupado</td>
+                <td>Livre</td>
+                <td>Ocupado</td>
+                <td>Livre</td>
+              </tr>
+              <tr>
+                <td>09:35 às 10:20</td>
+                <td>Ocupado</td>
+                <td>Livre</td>
+                <td>Ocupado</td>
+                <td>Livre</td>
+                <td>Ocupado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- Sala 2 -->
@@ -236,127 +244,93 @@
         <h2>Sala 2</h2>
         <p class="ocupada">Ocupada</p>
         <button class="ver-mais">Ver Mais</button>
-        <table class="horarios">
-          <thead>
-            <tr>
-              <th>Horário</th>
-              <th>Segunda</th>
-              <th>Terça</th>
-              <th>Quarta</th>
-              <th>Quinta</th>
-              <th>Sexta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>07:00 às 07:45</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-            </tr>
-            <tr>
-              <td>09:35 às 10:20</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tabela-container">
+          <table class="horarios">
+            <thead>
+              <tr>
+                <th>Horário</th>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>07:00 às 07:45</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+              </tr>
+              <tr>
+                <td>09:35 às 10:20</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+                <td>Ocupado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
-      <!-- Sala 3 -->
-      <div class="sala">
-        <h2>Sala 3</h2>
-        <p class="disponivel">Disponível</p>
-        <button class="ver-mais">Ver Mais</button>
-        <table class="horarios">
-          <thead>
-            <tr>
-              <th>Horário</th>
-              <th>Segunda</th>
-              <th>Terça</th>
-              <th>Quarta</th>
-              <th>Quinta</th>
-              <th>Sexta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>07:00 às 07:45</td>
-              <td>Livre</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-              <td>Livre</td>
-            </tr>
-            <tr>
-              <td>09:35 às 10:20</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Sala 4 -->
-      <div class="sala">
-        <h2>Sala 4</h2>
-        <p class="ocupada">Ocupada</p>
-        <button class="ver-mais">Ver Mais</button>
-        <table class="horarios">
-          <thead>
-            <tr>
-              <th>Horário</th>
-              <th>Segunda</th>
-              <th>Terça</th>
-              <th>Quarta</th>
-              <th>Quinta</th>
-              <th>Sexta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>07:00 às 07:45</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-            </tr>
-            <tr>
-              <td>09:35 às 10:20</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Livre</td>
-              <td>Ocupado</td>
-              <td>Ocupado</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- Sala 1 -->
+        <div class="sala">
+          <h2>Sala 1</h2>
+          <p class="disponivel">Disponível</p>
+          <button class="ver-mais">Ver Mais</button>
+          <div class="tabela-container">
+            <table class="horarios">
+              <thead>
+                <tr>
+                  <th>Horário</th>
+                  <th>Segunda</th>
+                  <th>Terça</th>
+                  <th>Quarta</th>
+                  <th>Quinta</th>
+                  <th>Sexta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>07:00 às 07:45</td>
+                  <td>Livre</td>
+                  <td>Ocupado</td>
+                  <td>Livre</td>
+                  <td>Ocupado</td>
+                  <td>Livre</td>
+                </tr>
+                <tr>
+                  <td>09:35 às 10:20</td>
+                  <td>Ocupado</td>
+                  <td>Livre</td>
+                  <td>Ocupado</td>
+                  <td>Livre</td>
+                  <td>Ocupado</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
     </div>
   </div>
 
-  <!-- Script para mostrar/ocultar tabela -->
+  <!-- Script para mostrar/ocultar tabela com scroll horizontal -->
   <script>
     const botoes = document.querySelectorAll('.ver-mais');
 
     botoes.forEach(botao => {
       botao.addEventListener('click', () => {
-        const tabela = botao.nextElementSibling;
-        if (tabela.style.display === 'none' || tabela.style.display === '') {
-          tabela.style.display = 'table';
+        const container = botao.nextElementSibling;
+        if (container.style.display === 'none' || container.style.display === '') {
+          container.style.display = 'block';
           botao.textContent = 'Ver Menos';
         } else {
-          tabela.style.display = 'none';
+          container.style.display = 'none';
           botao.textContent = 'Ver Mais';
         }
       });
