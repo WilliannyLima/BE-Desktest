@@ -19,115 +19,273 @@
             flex-direction: column;
         }
 
+        /* Barra de Navegação Superior */
+        .navbar {
+            width: 100%;
+            background: #5cb85c;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .navbar img {
+            width: 80px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav a:hover {
+            background: #2a482c;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
         .header-button {
-      padding: 8px 12px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    }
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-    .login-button-header {
-      background-color: #d9534f;
-      color: white;
-    }
+        .login-button-header {
+            background-color: #d9534f;
+            color: white;
+        }
 
-    .login-button-header:hover {
-      background-color: #c9302c;
-      transform: scale(1.05); /* Efeito de zoom */
-    }
+        .login-button-header:hover {
+            background-color: #c9302c;
+        }
 
-    .register-button-header {
-      background-color: white;
-      color: #5cb85c;
-      border: 2px solid #5cb85c;
-    }
+        .register-button-header {
+            background-color: white;
+            color: #5cb85c;
+            border: 2px solid #5cb85c;
+        }
 
-    .register-button-header:hover {
-      background-color: #e0e0e0;
-      color: #3e7d3e;
-      transform: scale(1.05); /* Efeito de zoom */
-    }
-        /* Barra superior */
-.navbar {
-      width: 100%;
-      background: #5cb85c;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
+        .register-button-header:hover {
+            background-color: #e0e0e0;
+            color: #3e7d3e;
+        }
 
-    .navbar img {
-      width: 80px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav a {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .nav a:hover {
-      background: #2a482c;
-    }
-
-    .login a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-        /* Conteúdo */
+        /* Conteúdo Principal */
         .content {
             flex-grow: 1;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background: rgb(71, 118, 62);
         }
 
+        /* Botões de Abas */
         .tabs {
-            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 0;
         }
 
-        .tabs button {
+        .tab-button {
             padding: 10px 20px;
-            margin-right: 5px;
-            border: none;
-            background: (71, 118, 62);
+            background-color: white;
+            border: 1px solid #ccc;
             cursor: pointer;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .tabs button.active {
-            background: #ffffff;
             font-weight: bold;
+            border-radius: 5px 5px 0 0;
+            transition: background-color 0.3s;
         }
 
+        .tab-button.active {
+            background-color: #f1a48d;
+            border-bottom: 1px solid #f1a48d;
+        }
+
+        /* Conteúdo das Abas */
+        .tab-content {
+            background-color: #f1a48d;
+            padding: 20px;
+            width: 90%;
+            max-width: 1000px;
+            color: black;
+            border-radius: 0 5px 5px 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
+        }
+
+        .tab-content.active {
+            max-height: 1000px;
+            opacity: 1;
+        }
+
+        /* Tabela */
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #f1a48d;
         }
 
         th, td {
             border: 1px solid #ffffff;
             text-align: center;
             padding: 8px;
+            color: black;
         }
 
         th {
             background: #f0f0f0;
+        }
+
+        td {
+            background: #e9967a;
+            color: black;
+        }
+        
+        .empty-slot {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .empty-slot:hover {
+            background-color: #d97b63;
+        }
+        
+        .empty-slot .fa-plus-circle {
+            color: #3e7d3e;
+        }
+        
+        /* Estilos do Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 50px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: left;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-content label {
+            font-weight: bold;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-content button {
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        /* Estilo da Tabela de Meus Agendamentos */
+        .my-bookings-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .my-bookings-list li {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .my-bookings-list li:hover {
+            transform: translateY(-2px);
+        }
+
+        .my-bookings-list .status-pending {
+            color: #d9534f;
+            font-weight: bold;
+            float: right;
+        }
+
+        .my-bookings-list .status-approved {
+            color: #5cb85c;
+            font-weight: bold;
+            float: right;
+        }
+
+        /* Modal para exibir detalhes do pedido */
+        #detailsModal .modal-content {
+            text-align: left;
+        }
+
+        #detailsModal p {
+            margin-bottom: 10px;
+        }
+        
+        #detailsModal .details-button {
+            width: 100%;
+            background-color: #3e7d3e;
         }
     </style>
 </head>
@@ -148,80 +306,262 @@
 
     <div class="content">
         <div class="tabs">
-            <button class="active">Agendar Horário</button>
-            <button><b>Processo de Agendamento</b></button>
+            <button class="tab-button active" onclick="showTab(this, 'tabela')">Tabela de Horários</button>
+            <button class="tab-button" onclick="showTab(this, 'meus-agendamentos')">Meus Agendamentos</button>
+            <button class="tab-button" onclick="showTab(this, 'processos')">Processos de Agendamento</button>
+        </div>
+        
+        <div id="tabela-tab" class="tab-content active">
+            <div id="scheduleTableContainer">
+                </div>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Horário</th>
-                    <th>Segunda</th>
-                    <th>Terça</th>
-                    <th>Quarta</th>
-                    <th>Quinta</th>
-                    <th>Sexta</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>07:00 às 07:45</td>
-                    <td>João<br>Musculação</td>
-                    <td>----</td>
-                    <td>Maria<br>Natação</td>
-                    <td>----</td>
-                    <td>----</td>
-                </tr>
-                <tr>
-                    <td>09:35 às 10:20</td>
-                    <td>----</td>
-                    <td>Carlos<br>Futebol</td>
-                    <td>----</td>
-                    <td>Ana<br>Pilates</td>
-                    <td>----</td>
-                </tr>
-                <tr>
-                    <td>10:30 às 11:15</td>
-                    <td>Lucas<br>Crossfit</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>Mariana<br>Yoga</td>
-                    <td>----</td>
-                </tr>
-                <tr>
-                    <td>13:00 às 13:45</td>
-                    <td>----</td>
-                    <td>Pedro<br>Basquete</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>Clara<br>Dança</td>
-                </tr>
-                <tr>
-                    <td>15:35 às 16:20</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>Roberto<br>Vôlei</td>
-                    <td>----</td>
-                    <td>----</td>
-                </tr>
-                <tr>
-                    <td>16:30 às 17:15</td>
-                    <td>Fernanda<br>Ginástica</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>Paulo<br>Boxe</td>
-                </tr>
-                <tr>
-                    <td>17:15 às 18:00</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>----</td>
-                    <td>----</td>
-                </tr>
-            </tbody>
-        </table>
+        <div id="meus-agendamentos-tab" class="tab-content">
+            <h3>Minhas Solicitações</h3>
+            <ul id="myBookingsList" class="my-bookings-list">
+                </ul>
+        </div>
+
+        <div id="processos-tab" class="tab-content">
+            <h3>Pedidos Pendentes</h3>
+            <ul id="pendingBookingsList" class="my-bookings-list">
+                </ul>
+        </div>
     </div>
+    
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Agendar Horário</h3>
+            <form id="bookingForm">
+                <label for="personName">Seu Nome:</label>
+                <input type="text" id="personName" name="personName" required>
+
+                <label for="sport">Qual o Esporte:</label>
+                <input type="text" id="sport" name="sport" required>
+
+                <label for="reason">Motivo da Solicitação:</label>
+                <input type="text" id="reason" name="reason" required>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Detalhes do Agendamento</h3>
+            <div id="detailsContent">
+                </div>
+            <button id="acceptButton" class="details-button" style="display:none;">Aceitar</button>
+        </div>
+    </div>
+
+    <script>
+        // Dados do agendamento (simula um banco de dados)
+        let bookings = [
+            { id: 1, day: 'Segunda', time: '07:00 às 07:45', name: 'João', sport: 'Musculação', reason: 'Treino diário', status: 'aprovado' },
+            { id: 2, day: 'Quarta', time: '07:00 às 07:45', name: 'Maria', sport: 'Natação', reason: 'Aula de natação', status: 'aprovado' },
+            { id: 3, day: 'Terça', time: '09:35 às 10:20', name: 'Carlos', sport: 'Futebol', reason: 'Treino com a equipe', status: 'aprovado' },
+            { id: 4, day: 'Quinta', time: '09:35 às 10:20', name: 'Ana', sport: 'Pilates', reason: 'Fisioterapia', status: 'aprovado' },
+            { id: 5, day: 'Segunda', time: '10:30 às 11:15', name: 'Lucas', sport: 'Crossfit', reason: 'Treino de alta intensidade', status: 'aprovado' },
+            { id: 6, day: 'Quinta', time: '10:30 às 11:15', name: 'Mariana', sport: 'Yoga', reason: 'Relaxamento e flexibilidade', status: 'aprovado' },
+            { id: 7, day: 'Terça', time: '13:00 às 13:45', name: 'Pedro', sport: 'Basquete', reason: 'Jogo com amigos', status: 'aprovado' },
+            { id: 8, day: 'Sexta', time: '13:00 às 13:45', name: 'Clara', sport: 'Dança', reason: 'Aula de dança', status: 'aprovado' },
+            { id: 9, day: 'Quarta', time: '15:35 às 16:20', name: 'Roberto', sport: 'Vôlei', reason: 'Treino de voleibol', status: 'aprovado' },
+            { id: 10, day: 'Segunda', time: '16:30 às 17:15', name: 'Fernanda', sport: 'Ginástica', reason: 'Preparação física', status: 'aprovado' },
+            { id: 11, day: 'Sexta', time: '16:30 às 17:15', name: 'Paulo', sport: 'Boxe', reason: 'Aula de boxe', status: 'aprovado' },
+        ];
+        
+        let lastBookingId = 11;
+        let loggedInUser = null; // Simula o nome do usuário logado
+
+        // Mapeamento de horários e dias
+        const timeSlots = ['07:00 às 07:45', '09:35 às 10:20', '10:30 às 11:15', '13:00 às 13:45', '15:35 às 16:20', '16:30 às 17:15', '17:15 às 18:00'];
+        const daysOfWeek = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
+
+        // Elementos do DOM
+        const bookingModal = document.getElementById("bookingModal");
+        const detailsModal = document.getElementById("detailsModal");
+        const bookingForm = document.getElementById("bookingForm");
+        const myBookingsList = document.getElementById("myBookingsList");
+        const pendingBookingsList = document.getElementById("pendingBookingsList");
+        const detailsContent = document.getElementById('detailsContent');
+        const acceptButton = document.getElementById('acceptButton');
+        let currentBookingDay = '';
+        let currentBookingTime = '';
+
+        // Funções de renderização
+        function renderScheduleTable() {
+            const tableContainer = document.getElementById('scheduleTableContainer');
+            let tableHTML = '<table><thead><tr><th>Horário</th>';
+            daysOfWeek.forEach(day => tableHTML += `<th>${day}</th>`);
+            tableHTML += '</tr></thead><tbody>';
+
+            timeSlots.forEach(time => {
+                tableHTML += `<tr><td>${time}</td>`;
+                daysOfWeek.forEach(day => {
+                    const foundBooking = bookings.find(b => b.day === day && b.time === time && b.status === 'aprovado');
+                    if (foundBooking) {
+                        tableHTML += `<td>${foundBooking.name}<br>${foundBooking.sport}</td>`;
+                    } else {
+                        tableHTML += `<td class="empty-slot" data-day="${day}" data-time="${time}">---- <i class="fa-solid fa-plus-circle"></i></td>`;
+                    }
+                });
+                tableHTML += '</tr>';
+            });
+
+            tableHTML += '</tbody></table>';
+            tableContainer.innerHTML = tableHTML;
+            addSlotClickListeners();
+        }
+
+        function renderMyBookingsList() {
+            const userBookings = bookings.filter(b => b.name === loggedInUser);
+            if (userBookings.length === 0) {
+                 myBookingsList.innerHTML = '<p style="color: black; font-weight: bold; text-align: center;">Você ainda não fez nenhum agendamento.</p>';
+            } else {
+                myBookingsList.innerHTML = '';
+                userBookings.forEach(booking => {
+                    const statusClass = booking.status === 'aprovado' ? 'status-approved' : 'status-pending';
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <strong>${booking.day} - ${booking.time}</strong>
+                        <span class="${statusClass}">${booking.status}</span>
+                        <br>
+                        Esporte: ${booking.sport}
+                    `;
+                    listItem.addEventListener('click', () => showDetails(booking, false));
+                    myBookingsList.appendChild(listItem);
+                });
+            }
+        }
+
+        function renderPendingBookingsList() {
+            const pendingBookings = bookings.filter(b => b.status === 'pendente');
+            if (pendingBookings.length === 0) {
+                pendingBookingsList.innerHTML = '<p style="color: black; font-weight: bold; text-align: center;">Não há solicitações pendentes.</p>';
+            } else {
+                pendingBookingsList.innerHTML = '';
+                pendingBookings.forEach(booking => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <strong>${booking.name}</strong> - ${booking.sport}
+                        <span class="status-pending">Pendente</span>
+                        <br>
+                        Dia: ${booking.day} - Horário: ${booking.time}
+                    `;
+                    listItem.addEventListener('click', () => showDetails(booking, true));
+                    pendingBookingsList.appendChild(listItem);
+                });
+            }
+        }
+
+        function showDetails(booking, isAdminView) {
+            detailsContent.innerHTML = `
+                <p><strong>Nome:</strong> ${booking.name}</p>
+                <p><strong>Esporte:</strong> ${booking.sport}</p>
+                <p><strong>Dia:</strong> ${booking.day}</p>
+                <p><strong>Horário:</strong> ${booking.time}</p>
+                <p><strong>Motivo:</strong> ${booking.reason}</p>
+                <p><strong>Status:</strong> <span class="${booking.status === 'aprovado' ? 'status-approved' : 'status-pending'}">${booking.status}</span></p>
+            `;
+            
+            if (isAdminView && booking.status === 'pendente') {
+                acceptButton.style.display = 'block';
+                acceptButton.onclick = () => acceptBooking(booking.id);
+            } else {
+                acceptButton.style.display = 'none';
+            }
+
+            detailsModal.style.display = "block";
+        }
+
+        function acceptBooking(bookingId) {
+            const booking = bookings.find(b => b.id === bookingId);
+            if (booking) {
+                booking.status = 'aprovado';
+                alert('Solicitação de ' + booking.name + ' aprovada!');
+                detailsModal.style.display = 'none';
+                renderAllTabs();
+            }
+        }
+
+        function addSlotClickListeners() {
+            document.querySelectorAll('.empty-slot').forEach(cell => {
+                cell.addEventListener('click', () => {
+                    currentBookingDay = cell.dataset.day;
+                    currentBookingTime = cell.dataset.time;
+                    bookingModal.style.display = "block";
+                });
+            });
+        }
+
+        function showTab(button, tabId) {
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            button.classList.add('active');
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+
+            renderAllTabs();
+        }
+        
+        function renderAllTabs() {
+            renderScheduleTable();
+            renderMyBookingsList();
+            renderPendingBookingsList();
+        }
+
+        // Lógica de agendamento
+        bookingForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!loggedInUser) {
+                loggedInUser = document.getElementById("personName").value;
+            }
+
+            const newBooking = {
+                id: ++lastBookingId,
+                day: currentBookingDay,
+                time: currentBookingTime,
+                name: document.getElementById("personName").value,
+                sport: document.getElementById("sport").value,
+                reason: document.getElementById("reason").value,
+                status: 'pendente'
+            };
+
+            bookings.push(newBooking);
+            bookingModal.style.display = "none";
+            bookingForm.reset();
+            renderAllTabs();
+            alert('Sua solicitação foi enviada e está pendente de aprovação.');
+            document.getElementById('tabela-tab').classList.remove('active');
+            document.getElementById('meus-agendamentos-tab').classList.add('active');
+        });
+
+        // Lógica dos modais
+        document.querySelectorAll('.close-button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                bookingModal.style.display = "none";
+                detailsModal.style.display = "none";
+            });
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == bookingModal) {
+                bookingModal.style.display = "none";
+            }
+            if (event.target == detailsModal) {
+                detailsModal.style.display = "none";
+            }
+        });
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAllTabs();
+        });
+    </script>
 </body>
 </html>
