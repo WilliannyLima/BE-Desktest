@@ -21,89 +21,94 @@
 
         /* Barra de Navegação Superior */
         .navbar {
-            width: 100%;
-            background: #5cb85c;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-        }
+      width: 100%;
+      background: #5cb85c;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
 
-        .navbar img {
-            width: 80px;
-        }
+    .navbar img {
+      width: 80px;
+    }
 
-        .nav {
-            display: flex;
-            gap: 20px;
-        }
+    .nav {
+      display: flex;
+      gap: 20px;
+    }
 
-        .nav a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-        .nav a:hover {
-            background: #2a482c;
-        }
+    .nav a:hover {
+      background: #2a482c;
+    }
 
-        .header-buttons {
-            display: flex;
-            gap: 10px;
-        }
+    .login a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .header-button {
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+    .header-button {
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
 
-        .login-button-header {
-            background-color: #d9534f;
-            color: white;
-        }
+    .login-button-header {
+      background-color: #d9534f;
+      color: white;
+    }
 
-        .login-button-header:hover {
-            background-color: #c9302c;
-        }
+    .login-button-header:hover {
+      background-color: #c9302c;
+      transform: scale(1.05); /* Efeito de zoom */
+    }
 
-        .register-button-header {
-            background-color: white;
-            color: #5cb85c;
-            border: 2px solid #5cb85c;
-        }
+    .register-button-header {
+      background-color: white;
+      color: #5cb85c;
+      border: 2px solid #5cb85c;
+    }
 
-        .register-button-header:hover {
-            background-color: #e0e0e0;
-            color: #3e7d3e;
-        }
+    .register-button-header:hover {
+      background-color: #e0e0e0;
+      color: #3e7d3e;
+      transform: scale(1.05); /* Efeito de zoom */
+    }
 
         /* Conteúdo Principal */
         .content {
             flex-grow: 1;
             padding: 20px;
-            display: flex;
+            display: block;
             flex-direction: column;
-            align-items: center;
             background: rgb(71, 118, 62);
+            width: 100%; 
         }
-
-        /* Botões de Abas */
         .tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 0;
+            justify-content:flex-start; 
+            width: 100%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
         .tab-button {
             padding: 10px 20px;
             background-color: white;
@@ -112,6 +117,7 @@
             font-weight: bold;
             border-radius: 5px 5px 0 0;
             transition: background-color 0.3s;
+            justify-content:left;
         }
 
         .tab-button.active {
@@ -122,16 +128,17 @@
         /* Conteúdo das Abas */
         .tab-content {
             background-color: #f1a48d;
-            padding: 20px;
+            padding: 0px;
             width: 90%;
             max-width: 1000px;
+            margin: 0 auto;
             color: black;
             border-radius: 0 5px 5px 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             max-height: 0;
             overflow: hidden;
             opacity: 0;
-            transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
+            
         }
 
         .tab-content.active {
@@ -189,7 +196,7 @@
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color: #ffffff;
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
