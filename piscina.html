@@ -19,37 +19,7 @@
       flex-direction: column;
     }
 
-    .header-button {
-      padding: 8px 12px;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    }
-
-    .login-button-header {
-      background-color: #d9534f;
-      color: white;
-    }
-
-    .login-button-header:hover {
-      background-color: #c9302c;
-      transform: scale(1.05); /* Efeito de zoom */
-    }
-
-    .register-button-header {
-      background-color: white;
-      color: #5cb85c;
-      border: 2px solid #5cb85c;
-    }
-
-    .register-button-header:hover {
-      background-color: #e0e0e0;
-      color: #3e7d3e;
-      transform: scale(1.05); /* Efeito de zoom */
-    }
-
-    /* Barra superior */
+    /* Barra Superior */
     .navbar {
       width: 100%;
       background: #5cb85c;
@@ -84,10 +54,34 @@
       background: #2a482c;
     }
 
-    .login a {
-      color: #fff;
-      text-decoration: none;
+    .header-button {
+      padding: 8px 12px;
+      border-radius: 5px;
       font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .login-button-header {
+      background-color: #d9534f;
+      color: white;
+    }
+
+    .login-button-header:hover {
+      background-color: #c9302c;
+      transform: scale(1.05);
+    }
+
+    .register-button-header {
+      background-color: white;
+      color: #5cb85c;
+      border: 2px solid #5cb85c;
+    }
+
+    .register-button-header:hover {
+      background-color: #e0e0e0;
+      color: #3e7d3e;
+      transform: scale(1.05);
     }
 
     /* Conteúdo */
@@ -118,6 +112,89 @@
     th {
       background: #f0f0f0;
     }
+
+    /* Botão Agendar */
+    .empty-slot button {
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .empty-slot button:hover {
+      background-color: #3e7d3e;
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding-top: 50px;
+    }
+
+    .modal-content {
+      background-color: #ffffff;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      color: black;
+    }
+
+    .modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .modal-content label {
+      font-weight: bold;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal-content button {
+      padding: 10px;
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -131,85 +208,114 @@
       <a href="piscina.html"><i class="fa-solid fa-person-swimming"></i> Piscina</a>
     </div>
     <div class="header-buttons">
-  <a href="login.html" class="header-button login-button-header">LOGIN</a>
-  <a href="registrar.html" class="header-button register-button-header">CADASTRAR</a>
-</div>
+      <a href="login.html" class="header-button login-button-header">LOGIN</a>
+      <a href="registrar.html" class="header-button register-button-header">CADASTRAR</a>
+    </div>
   </div>
 
   <!-- Conteúdo -->
   <div class="content">
     <h1>Horários da Semana - Piscina</h1>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Horário</th>
-          <th>Segunda</th>
-          <th>Terça</th>
-          <th>Quarta</th>
-          <th>Quinta</th>
-          <th>Sexta</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>07:00 às 07:45</td>
-          <td>Lucas</td>
-          <td>----</td>
-          <td>Ana</td>
-          <td>----</td>
-          <td>----</td>
-        </tr>
-        <tr>
-          <td>09:35 às 10:20</td>
-          <td>----</td>
-          <td>Roberto</td>
-          <td>----</td>
-          <td>Mariana</td>
-          <td>----</td>
-        </tr>
-        <tr>
-          <td>10:30 às 11:15</td>
-          <td>Pedro</td>
-          <td>----</td>
-          <td>----</td>
-          <td>Lucas</td>
-          <td>----</td>
-        </tr>
-        <tr>
-          <td>13:00 às 13:45</td>
-          <td>----</td>
-          <td>Carla</td>
-          <td>----</td>
-          <td>----</td>
-          <td>Fernanda</td>
-        </tr>
-        <tr>
-          <td>15:35 às 16:20</td>
-          <td>----</td>
-          <td>----</td>
-          <td>João</td>
-          <td>----</td>
-          <td>----</td>
-        </tr>
-        <tr>
-          <td>16:30 às 17:15</td>
-          <td>Maria</td>
-          <td>----</td>
-          <td>----</td>
-          <td>----</td>
-          <td>Paulo</td>
-        </tr>
-        <tr>
-          <td>17:15 às 18:00</td>
-          <td>----</td>
-          <td>----</td>
-          <td>----</td>
-          <td>----</td>
-          <td>----</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="scheduleTableContainer"></div>
   </div>
+
+  <!-- Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3>Agendar Horário</h3>
+      <form id="bookingForm">
+        <label for="personName">Seu Nome:</label>
+        <input type="text" id="personName" name="personName" required>
+        
+        <label for="reason">Motivo da Solicitação:</label>
+        <input type="text" id="reason" name="reason" required>
+
+        <button type="submit">Salvar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Dados iniciais
+    let bookings = [
+      { day: 'Segunda', time: '07:00 às 07:45', name: 'Lucas', sport: 'Natação' },
+      { day: 'Quarta', time: '07:00 às 07:45', name: 'Ana', sport: 'Natação' },
+      { day: 'Terça', time: '09:35 às 10:20', name: 'Roberto', sport: 'Natação' },
+      { day: 'Quinta', time: '09:35 às 10:20', name: 'Mariana', sport: 'Natação' },
+      { day: 'Segunda', time: '10:30 às 11:15', name: 'Pedro', sport: 'Natação' },
+      { day: 'Quinta', time: '10:30 às 11:15', name: 'Lucas', sport: 'Natação' },
+      { day: 'Terça', time: '13:00 às 13:45', name: 'Carla', sport: 'Natação' },
+      { day: 'Sexta', time: '13:00 às 13:45', name: 'Fernanda', sport: 'Natação' },
+      { day: 'Quarta', time: '15:35 às 16:20', name: 'João', sport: 'Natação' },
+      { day: 'Segunda', time: '16:30 às 17:15', name: 'Maria', sport: 'Natação' },
+      { day: 'Sexta', time: '16:30 às 17:15', name: 'Paulo', sport: 'Natação' },
+    ];
+
+    const timeSlots = ['07:00 às 07:45', '09:35 às 10:20', '10:30 às 11:15', '13:00 às 13:45', '15:35 às 16:20', '16:30 às 17:15', '17:15 às 18:00'];
+    const daysOfWeek = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
+
+    const bookingModal = document.getElementById("bookingModal");
+    const bookingForm = document.getElementById("bookingForm");
+    let currentBookingDay = '';
+    let currentBookingTime = '';
+
+    function renderScheduleTable() {
+      const tableContainer = document.getElementById('scheduleTableContainer');
+      let tableHTML = '<table><thead><tr><th>Horário</th>';
+      daysOfWeek.forEach(day => tableHTML += `<th>${day}</th>`);
+      tableHTML += '</tr></thead><tbody>';
+
+      timeSlots.forEach(time => {
+        tableHTML += `<tr><td>${time}</td>`;
+        daysOfWeek.forEach(day => {
+          const foundBooking = bookings.find(b => b.day === day && b.time === time);
+          if (foundBooking) {
+            tableHTML += `<td>${foundBooking.name}<br>${foundBooking.sport}</td>`;
+          } else {
+            tableHTML += `<td class="empty-slot"><button data-day="${day}" data-time="${time}">Agendar</button></td>`;
+          }
+        });
+        tableHTML += '</tr>';
+      });
+
+      tableHTML += '</tbody></table>';
+      tableContainer.innerHTML = tableHTML;
+
+      document.querySelectorAll('.empty-slot button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentBookingDay = btn.dataset.day;
+          currentBookingTime = btn.dataset.time;
+          bookingModal.style.display = "block";
+        });
+      });
+    }
+
+    bookingForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const newBooking = {
+        day: currentBookingDay,
+        time: currentBookingTime,
+        name: document.getElementById("personName").value,
+        sport: document.getElementById("sport").value
+      };
+      bookings.push(newBooking);
+      bookingModal.style.display = "none";
+      bookingForm.reset();
+      renderScheduleTable();
+    });
+
+    document.querySelector('.close-button').addEventListener('click', () => {
+      bookingModal.style.display = "none";
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target == bookingModal) {
+        bookingModal.style.display = "none";
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', renderScheduleTable);
+  </script>
 </body>
 </html>
