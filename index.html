@@ -568,6 +568,19 @@
         // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             renderAllTabs();
+
+        
+            
+    document.addEventListener("DOMContentLoaded", () => {
+        const loggedUser = localStorage.getItem("userLogged");
+        if (loggedUser) {
+            const headerButtons = document.querySelector(".header-buttons");
+            if (headerButtons) {
+                headerButtons.style.display = "none"; // Esconde botões LOGIN / CADASTRAR
+            }
+        }
+    });
+
         });
     </script>
 </body>
