@@ -200,7 +200,7 @@
 <body>
   <!-- Barra superior -->
   <div class="navbar">
-    <img src="/imagens/" alt="Logo">
+    <img src="imagens/logo1.png" alt="Logo">
     <div class="nav">
       <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
       <a href="salas.html"><i class="fa-solid fa-door-open"></i> Salas</a>
@@ -219,103 +219,118 @@
     <div id="scheduleTableContainer"></div>
   </div>
 
-  <!-- Modal -->
-  <div id="bookingModal" class="modal">
-    <div class="modal-content">
-      <span class="close-button">&times;</span>
-      <h3>Agendar Horário</h3>
-      <form id="bookingForm">
-        <label for="personName">Seu Nome:</label>
-        <input type="text" id="personName" name="personName" required>
-        
-        <label for="reason">Motivo da Solicitação:</label>
-        <input type="text" id="reason" name="reason" required>
 
-        <button type="submit">Salvar</button>
-      </form>
-    </div>
+
+  <!-- Modal -->
+
+      <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Agendar Horário</h3>
+            <form id="bookingForm">
+                <label for="personName">Seu Nome:</label>
+                <input type="text" id="personName" name="personName" required>
+
+                <label for="motive">Motivo da Solicitação:</label>
+                <input type="text" id="motive" name="motive" required>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div
   </div>
 
-  <script>
-    // Dados iniciais
-    let bookings = [
-      { day: 'Segunda', time: '07:00 às 07:45', name: 'Lucas', sport: 'Natação' },
-      { day: 'Quarta', time: '07:00 às 07:45', name: 'Ana', sport: 'Natação' },
-      { day: 'Terça', time: '09:35 às 10:20', name: 'Roberto', sport: 'Natação' },
-      { day: 'Quinta', time: '09:35 às 10:20', name: 'Mariana', sport: 'Natação' },
-      { day: 'Segunda', time: '10:30 às 11:15', name: 'Pedro', sport: 'Natação' },
-      { day: 'Quinta', time: '10:30 às 11:15', name: 'Lucas', sport: 'Natação' },
-      { day: 'Terça', time: '13:00 às 13:45', name: 'Carla', sport: 'Natação' },
-      { day: 'Sexta', time: '13:00 às 13:45', name: 'Fernanda', sport: 'Natação' },
-      { day: 'Quarta', time: '15:35 às 16:20', name: 'João', sport: 'Natação' },
-      { day: 'Segunda', time: '16:30 às 17:15', name: 'Maria', sport: 'Natação' },
-      { day: 'Sexta', time: '16:30 às 17:15', name: 'Paulo', sport: 'Natação' },
-    ];
+ 
+   <script>
+  // Dados iniciais
+  let bookings = [
+    { day: 'Segunda', time: '07:00 às 07:45', name: 'Lucas', motive: 'Aula experimental' },
+    { day: 'Quarta', time: '07:00 às 07:45', name: 'Ana', motive: 'Reforço' },
+    { day: 'Terça', time: '09:35 às 10:20', name: 'Roberto', motive: 'Treino' },
+    { day: 'Quinta', time: '09:35 às 10:20', name: 'Mariana', motive: 'Natação' },
+    { day: 'Segunda', time: '10:30 às 11:15', name: 'Pedro', motive: 'Recreativo' },
+    { day: 'Quinta', time: '10:30 às 11:15', name: 'Lucas', motive: 'Aula particular' },
+    { day: 'Terça', time: '13:00 às 13:45', name: 'Carla', motive: 'Treino livre' },
+    { day: 'Sexta', time: '13:00 às 13:45', name: 'Fernanda', motive: 'Aula experimental' },
+    { day: 'Quarta', time: '15:35 às 16:20', name: 'João', motive: 'Reforço' },
+    { day: 'Segunda', time: '16:30 às 17:15', name: 'Maria', motive: 'Treino' },
+    { day: 'Sexta', time: '16:30 às 17:15', name: 'Paulo', motive: 'Recreativo' },
+  ];
 
-    const timeSlots = ['07:00 às 07:45', '09:35 às 10:20', '10:30 às 11:15', '13:00 às 13:45', '15:35 às 16:20', '16:30 às 17:15', '17:15 às 18:00'];
-    const daysOfWeek = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
+  const timeSlots = [
+    '07:00 às 07:45',
+    '09:35 às 10:20',
+    '10:30 às 11:15',
+    '13:00 às 13:45',
+    '15:35 às 16:20',
+    '16:30 às 17:15',
+    '17:15 às 18:00'
+  ];
+  const daysOfWeek = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
 
-    const bookingModal = document.getElementById("bookingModal");
-    const bookingForm = document.getElementById("bookingForm");
-    let currentBookingDay = '';
-    let currentBookingTime = '';
+  const bookingModal = document.getElementById("bookingModal");
+  const bookingForm = document.getElementById("bookingForm");
+  let currentBookingDay = '';
+  let currentBookingTime = '';
 
-    function renderScheduleTable() {
-      const tableContainer = document.getElementById('scheduleTableContainer');
-      let tableHTML = '<table><thead><tr><th>Horário</th>';
-      daysOfWeek.forEach(day => tableHTML += `<th>${day}</th>`);
-      tableHTML += '</tr></thead><tbody>';
+  function renderScheduleTable() {
+    const tableContainer = document.getElementById('scheduleTableContainer');
+    let tableHTML = '<table><thead><tr><th>Horário</th>';
+    daysOfWeek.forEach(day => tableHTML += `<th>${day}</th>`);
+    tableHTML += '</tr></thead><tbody>';
 
-      timeSlots.forEach(time => {
-        tableHTML += `<tr><td>${time}</td>`;
-        daysOfWeek.forEach(day => {
-          const foundBooking = bookings.find(b => b.day === day && b.time === time);
-          if (foundBooking) {
-            tableHTML += `<td>${foundBooking.name}<br>${foundBooking.sport}</td>`;
-          } else {
-            tableHTML += `<td class="empty-slot"><button data-day="${day}" data-time="${time}">Agendar</button></td>`;
-          }
-        });
-        tableHTML += '</tr>';
+    timeSlots.forEach(time => {
+      tableHTML += `<tr><td>${time}</td>`;
+      daysOfWeek.forEach(day => {
+        const foundBooking = bookings.find(b => b.day === day && b.time === time);
+        if (foundBooking) {
+          // Agora mostra Nome + Motivo
+          tableHTML += `<td>${foundBooking.name}<br>${foundBooking.motive}</td>`;
+        } else {
+          tableHTML += `<td class="empty-slot"><button data-day="${day}" data-time="${time}">Agendar</button></td>`;
+        }
       });
+      tableHTML += '</tr>';
+    });
 
-      tableHTML += '</tbody></table>';
-      tableContainer.innerHTML = tableHTML;
+    tableHTML += '</tbody></table>';
+    tableContainer.innerHTML = tableHTML;
 
-      document.querySelectorAll('.empty-slot button').forEach(btn => {
-        btn.addEventListener('click', () => {
-          currentBookingDay = btn.dataset.day;
-          currentBookingTime = btn.dataset.time;
-          bookingModal.style.display = "block";
-        });
+    document.querySelectorAll('.empty-slot button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentBookingDay = btn.dataset.day;
+        currentBookingTime = btn.dataset.time;
+        bookingModal.style.display = "block";
       });
+    });
+  }
+
+  bookingForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const newBooking = {
+      day: currentBookingDay,
+      time: currentBookingTime,
+      name: document.getElementById("personName").value,
+      motive: document.getElementById("motive").value || "Não informado" // <--- trocado para motive
+    };
+    bookings.push(newBooking);
+    bookingModal.style.display = "none";
+    bookingForm.reset();
+    renderScheduleTable();
+  });
+
+  document.querySelector('.close-button').addEventListener('click', () => {
+    bookingModal.style.display = "none";
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target == bookingModal) {
+      bookingModal.style.display = "none";
     }
+  });
 
-    bookingForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const newBooking = {
-        day: currentBookingDay,
-        time: currentBookingTime,
-        name: document.getElementById("personName").value,
-        sport: document.getElementById("sport").value
-      };
-      bookings.push(newBooking);
-      bookingModal.style.display = "none";
-      bookingForm.reset();
-      renderScheduleTable();
-    });
+  document.addEventListener('DOMContentLoaded', renderScheduleTable);
+</script>
 
-    document.querySelector('.close-button').addEventListener('click', () => {
-      bookingModal.style.display = "none";
-    });
-
-    window.addEventListener('click', (event) => {
-      if (event.target == bookingModal) {
-        bookingModal.style.display = "none";
-      }
-    });
-
-    document.addEventListener('DOMContentLoaded', renderScheduleTable);
-  </script>
 </body>
 </html>
